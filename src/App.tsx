@@ -1,19 +1,11 @@
 import { useState } from "react";
-import { Login } from "./pages/login/login";
-import { Home } from "./pages/home/home";
+import Home from "./pages/home/index";
+import Login from "./pages/login/index";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(false);
 
-  return (
-    <>
-      {isAuthenticated ? (
-        <Home />
-      ) : (
-        <Login />
-      )}
-    </>
-  );
+  return isAuthenticated ? <Home /> : <Login />;
 }
 
 export default App;
