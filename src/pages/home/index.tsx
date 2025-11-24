@@ -1,7 +1,11 @@
-export default function Home() {
+export default function Home({ onLogout }: { onLogout: () => void }) {
   return (
-    <div>
-      <h1>Página Home funcionando</h1>
+    <div style={{ padding: 20 }}>
+      <h1>Bienvenido al Home</h1>
+
+      <button onClick={onLogout}>
+        Cerrar sesión
+      </button>
     </div>
   );
 }
