@@ -1,0 +1,33 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto; 
+  margin-bottom: 20px;
+}
+
+.album-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgb(72, 126, 65);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.album-table th {
+  background: #26ae1a;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.album-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.album-table tr:nth-child(even) {
+  background: #7fdc51;
+}
+
+.album-table tr:hover {
+  background: #4f5bdd;
+  transition: 0.2s;
+}

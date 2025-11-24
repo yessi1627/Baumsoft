@@ -1,10 +1,10 @@
+import "./home.css";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 
 import AlbumTable from "../../components/TableAlbums/AlbumTable";
 import Pagination from "../../components/Paginator/Pagination";
 import Loader from "../../components/Loader/Loader";
-
 
 interface Album {
   userId: number;
@@ -48,19 +48,17 @@ export default function Home({ onLogout }: HomeProps) {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="home-container">
       <h1>Lista de Álbumes</h1>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="home-error">{error}</p>}
 
       <AlbumTable albums={albums} />
 
       {loading && <Loader />}
 
       {!loading && noHayMas && (
-        <p style={{ color: "#26ae1aff", marginBottom: 20 }}>
-          No hay más álbumes para mostrar.
-        </p>
+        <p className="home-info">No hay más álbumes para mostrar.</p>
       )}
 
       <Pagination
@@ -71,7 +69,12 @@ export default function Home({ onLogout }: HomeProps) {
         onNext={() => setPage((p) => p + 1)}
       />
 
-      <button onClick={onLogout}>Cerrar sesión</button>
+      <button className="logout-btn" onClick={onLogout}>
+        Cerrar sesión
+      </button>
+
     </div>
   );
 }
+
+

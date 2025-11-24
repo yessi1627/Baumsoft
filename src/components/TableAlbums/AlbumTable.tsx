@@ -1,3 +1,5 @@
+import "./AlbumTable.css";
+
 interface Album {
   userId: number;
   id: number;
@@ -10,21 +12,23 @@ interface AlbumTableProps {
 
 export default function AlbumTable({ albums }: AlbumTableProps) {
   return (
-    <table border={1} cellPadding={10} style={{ marginBottom: 20 }}>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Título</th>
-        </tr>
-      </thead>
-      <tbody>
-        {albums.map((a) => (
-          <tr key={a.id}>
-            <td>{a.id}</td>
-            <td>{a.title}</td>
+    <div className="table-container">
+      <table className="album-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {albums.map((a) => (
+            <tr key={a.id}>
+              <td>{a.id}</td>
+              <td>{a.title}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import "./Login.css"; // ⭐ Importa los estilos
 
 type LoginForm = {
   usuario: string;
@@ -10,7 +11,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<LoginForm>();
 
   const [cargando, setCargando] = useState(false);
@@ -31,32 +32,34 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="login-container">
       <h2>Iniciar sesión</h2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+      <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group">
           <label>Usuario</label>
           <input
             {...register("usuario", { required: "El usuario es obligatorio" })}
           />
-          {errors.usuario && <p>{errors.usuario.message}</p>}
+          {errors.usuario && <p className="error">{errors.usuario.message}</p>}
         </div>
 
-        <div>
+        <div className="form-group">
           <label>Contraseña</label>
           <input
             type="password"
             {...register("contraseña", {
-              required: "La contraseña es obligatoria"
+              required: "La contraseña es obligatoria",
             })}
           />
-          {errors.contraseña && <p>{errors.contraseña.message}</p>}
+          {errors.contraseña && (
+            <p className="error">{errors.contraseña.message}</p>
+          )}
         </div>
 
-        {errorAuth && <p style={{ color: "red" }}>{errorAuth}</p>}
+        {errorAuth && <p className="error">{errorAuth}</p>}
 
-        <button type="submit" disabled={cargando}>
+        <button className="login-button" type="submit" disabled={cargando}>
           {cargando ? "Validando..." : "Ingresar"}
         </button>
       </form>
