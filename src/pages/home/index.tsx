@@ -5,6 +5,7 @@ import AlbumTable from "../../components/TableAlbums/AlbumTable";
 import Pagination from "../../components/Paginator/Pagination";
 import Loader from "../../components/Loader/Loader";
 
+
 interface Album {
   userId: number;
   id: number;
